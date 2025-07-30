@@ -1,0 +1,10 @@
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        s=sorted(nums)
+        temp=nums
+        for i in range(0,len(nums)):
+            a=temp.pop(0)
+            temp.append(a)
+            if s==temp:
+                return True
+        return False
