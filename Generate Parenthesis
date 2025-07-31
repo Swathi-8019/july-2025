@@ -1,0 +1,20 @@
+class Solution:
+    def generate(self,curr_str,ans,open,close,n):
+        if(open==close and open+close==2*n):
+            ans.append(curr_str)
+            return
+        if(open>n):
+            return
+        if(close>open):
+            return
+        self.generate(curr_str+"(",ans,open+1,close,n)
+        self.generate(curr_str+")",ans,open,close+1,n)
+    def generateParenthesis(self, n: int) -> List[str]:
+        curr_str=""
+        ans=[]
+        open=0
+        close=0
+        self.generate(curr_str,ans,open,close,n)
+        return ans
+
+        
